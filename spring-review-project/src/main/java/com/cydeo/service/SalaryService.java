@@ -9,18 +9,31 @@ import org.springframework.stereotype.Component;
 public class SalaryService {
 
     private final EmployeeRepository employeeRepository;
-    private final HoursRepository hoursRepository;
+    private final HoursRepository regularHours;
+    private final HoursRepository overtimeHours;
 
-    public SalaryService(EmployeeRepository employeeRepository, HoursRepository hoursRepository) {
+    public SalaryService(EmployeeRepository employeeRepository, @Qualifier ("Regular") HoursRepository regularHours,
+                         @Qualifier ("Overtime") HoursRepository overtimeHours) {
         this.employeeRepository = employeeRepository;
-        this.hoursRepository = hoursRepository;
+        this.regularHours = regularHours;
+        this.overtimeHours = overtimeHours;
     }
 
     public void calculateRegularSalary(Employee employee){
-        Integer result = employeeRepository.getHourlyRate(employee)*hoursRepository.getHours();
-        System.out.println("Salary for " + employee.getName() + " is " + result);
+        Integer result = employeeRepository.getHourlyRate(employee)*regularHours.getHours();
+        System.out.println("Regular salary for " + employee.getName() + " is " + result);
     }
 
+    public void calculateTotalSalary(Employee employee){
+        Integer result = employeeRepository.getHourlyRate(employee)*(regularHours.getHours()+ overtimeHours.getHours());
+        System.out.println("Total salary for " + employee.getName() + " is " + result);
+    }
 
+    public Integer getRegularSalary(Employee employee){
+        return employeeRepository.getHourlyRate(employee)*regularHours.getHours();
+    }
 
+    public Integer getTotalSalary(Employee employee){
+        return getRegularSalary(employee)+overtimeHours.getHours();
+    }
 }

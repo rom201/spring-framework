@@ -14,11 +14,17 @@ public class EmployeeApp {
         empl1.setDepartment("IT");
         empl1.setHourlyRate(30);
 
-
         ApplicationContext context = new AnnotationConfigApplicationContext(ProjectConfig.class);
 
         SalaryService service1 = context.getBean(SalaryService.class);
         service1.calculateRegularSalary(empl1);
+        service1.calculateTotalSalary(empl1);
+
+        System.out.println("Regular Salary: " + service1.getRegularSalary(empl1));
+        System.out.println("Total Salary: " + service1.getTotalSalary(empl1));
+
+
+
 
     }
 }

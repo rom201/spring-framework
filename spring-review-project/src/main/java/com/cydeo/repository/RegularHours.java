@@ -5,8 +5,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-//@Qualifier("Regular")
-@Primary
+@Qualifier("Regular")
+//@Primary
 public class RegularHours implements HoursRepository{
 
     @Override
