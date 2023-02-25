@@ -9,19 +9,16 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class EmployeeApp {
     public static void main(String[] args) {
 
-        Employee empl1 = new Employee("Tom","IT",20);
-        Employee empl2 = new Employee("Ann","BA",30);
-        Employee empl3 = new Employee("Lin","PM",40);
-        Employee empl4 = new Employee("Kim","SM",50);
+        Employee empl1 = new Employee();
+        empl1.setName("Tom");
+        empl1.setDepartment("IT");
+        empl1.setHourlyRate(30);
 
 
         ApplicationContext context = new AnnotationConfigApplicationContext(ProjectConfig.class);
 
         SalaryService service1 = context.getBean(SalaryService.class);
         service1.calculateRegularSalary(empl1);
-        service1.calculateRegularSalary(empl2);
-        service1.calculateRegularSalary(empl3);
-        service1.calculateRegularSalary(empl4);
 
     }
 }

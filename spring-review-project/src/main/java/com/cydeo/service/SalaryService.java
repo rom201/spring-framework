@@ -1,28 +1,23 @@
 package com.cydeo.service;
 
 import com.cydeo.model.Employee;
-import com.cydeo.repository.DBEmployeeRepository;
-import com.cydeo.repository.OvertimeHours;
-import com.cydeo.repository.RegularHours;
+import com.cydeo.repository.*;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SalaryService {
 
-    private final DBEmployeeRepository dbEmployeeRepository;
-    private final RegularHours regularHours;
-    private  final OvertimeHours overtimeHours;
+    private final EmployeeRepository employeeRepository;
+    private final HoursRepository hoursRepository;
 
-    public SalaryService(DBEmployeeRepository dbEmployeeRepository, RegularHours regularHours, OvertimeHours overtimeHours) {
-        this.dbEmployeeRepository = dbEmployeeRepository;
-        this.regularHours = regularHours;
-        this.overtimeHours = overtimeHours;
+    public SalaryService(EmployeeRepository employeeRepository, HoursRepository hoursRepository) {
+        this.employeeRepository = employeeRepository;
+        this.hoursRepository = hoursRepository;
     }
 
     public void calculateRegularSalary(Employee employee){
-
-        Integer result = dbEmployeeRepository.getHourlyRate(employee)*(regularHours.getHours()+overtimeHours.getHours());
-
+        Integer result = employeeRepository.getHourlyRate(employee)*hoursRepository.getHours();
         System.out.println("Salary for " + employee.getName() + " is " + result);
     }
 
