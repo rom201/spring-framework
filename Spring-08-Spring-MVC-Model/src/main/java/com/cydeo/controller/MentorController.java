@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/mentor")
+@RequestMapping("/mentor")    //by doing this we change end point to remove duplicates for end point
 public class MentorController {
 
-    @RequestMapping("/list")
+    @RequestMapping("/list")   // localhost:8080/mentor/list
     public String showMentorsList(Model model){
 
         List<Mentor> mentorList = new ArrayList<>();
