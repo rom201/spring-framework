@@ -1,4 +1,13 @@
 package com.cydeo.repository;
 
-public class RegularHours {
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
+@Qualifier("Regular")
+public class RegularHours implements HoursRepository{
+    @Override
+    public int getHours() {
+        return 40;
+    }
 }
