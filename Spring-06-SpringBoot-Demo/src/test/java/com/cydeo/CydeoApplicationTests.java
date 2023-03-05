@@ -8,6 +8,7 @@ class CydeoApplicationTests {
 
     @Test
     void contextLoads() {
+        System.out.println("My test running");
     }
 
 }
