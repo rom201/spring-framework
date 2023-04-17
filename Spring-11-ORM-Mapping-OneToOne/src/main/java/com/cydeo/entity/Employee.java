@@ -31,6 +31,10 @@ public class Employee extends BaseEntity{
     @JoinColumn(name = "department_id")
     private Department department; //has a , what kind relation happens
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "region_id")
+    private Region region;
+
 
     public Employee(String firstName, String lastName, String email, LocalDate hireDate, int salary, Gender gender) {
         this.firstName = firstName;
