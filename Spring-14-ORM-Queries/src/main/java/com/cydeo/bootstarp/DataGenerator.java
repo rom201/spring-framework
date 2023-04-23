@@ -50,6 +50,9 @@ public class DataGenerator implements CommandLineRunner {
         System.out.println(employeeRepository.findByFirstNameAndLastNameOrEmail("Bethena","Trow","ssymonds2@hhs.gov"));
         System.out.println(employeeRepository.findByLastNameStartsWith("Ann"));
 
+        System.out.println("---------Employee start JPQL---------------");
+        System.out.println(employeeRepository.getEmployeeDetail());
+        System.out.println(employeeRepository.getEmployeeSalary());
 
 
 
