@@ -16,8 +16,6 @@ public interface DepartmentRepository extends JpaRepository<Department, String> 
 
     List<Department> findByDivisionEquals(String division);
 
-
-
     //Display top 3 departments with division name includes 'Hea', without duplicates
     List<Department> findDistinctTop3ByDivisionContains(String pattern);
 
@@ -29,9 +27,6 @@ public interface DepartmentRepository extends JpaRepository<Department, String> 
 
     @Query(nativeQuery = true)
     List<Department> retrieveDepartmentByDivisionContain(String pattern);
-
-
-
 
 
 }
