@@ -37,14 +37,13 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     // ------------------- JPQL QUERIES ------------------- //
 
     //Write a JPQL query that returns all accounts
-
     @Query("SELECT a from Account a")
     List<Account> fetchAllAccountsJPQL ();
 
 
     //Write a JPQL query to list all admin accounts
     @Query("select a from Account a where a.role = 'ADMIN' ")
-    List<Account> getListAllAdminAccountsJPQL ();
+    List<Account> fetchAllAdminAccountsJPQL ();
 
 
     //Write a JPQL query to sort all accounts with age
@@ -62,8 +61,6 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     List<Account> fetchAllAccountsAgeLowerThen(@Param("age") Integer age);
 
     //Write a native query to read all accounts that a specific value can be containable in the name, address, country, state city
-
-
     @Query(value = "select * from account_details where name ILIKE concat('%',?1,'%')"+
             "or address ILIKE concat('%',?1,'%')"+
             "or country ILIKE concat('%',?1,'%')"+
