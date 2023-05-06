@@ -24,11 +24,7 @@ public interface GenreRepository extends JpaRepository<Genre, Long> {
     // ------------------- Native QUERIES ------------------- //
 
     //Write a native query that returns genres by containing name
-
-//    @Query( value = "Select * from Genre where ")
-    List<Genre> retreiveByName(@Param("name") String name);
-
-
-    //    @Query(value = "", nativeQuery = true)
+    @Query( value = "Select * from Genre where name ILIKE concat('%',?1,'%')", nativeQuery = true)
+    List<Genre> retrieveByName(@Param("name") String name);
 
 }

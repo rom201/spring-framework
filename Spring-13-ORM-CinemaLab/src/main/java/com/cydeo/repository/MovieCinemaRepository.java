@@ -73,6 +73,7 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema, Long> 
     List<MovieCinema> retrieveAllMoviesByLocationName (@Param("name") String name);
 
 
-
+    //    @Query(value = "", nativeQuery = true)
+    //ILIKE concat('%',?1,'%')
 
 }
