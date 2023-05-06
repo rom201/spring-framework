@@ -35,4 +35,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     //Write a native query to read a user by email?
 
+
+
+    //    @Query(value = "", nativeQuery = true)
+    //ILIKE concat('%',?1,'%')
+
 }
