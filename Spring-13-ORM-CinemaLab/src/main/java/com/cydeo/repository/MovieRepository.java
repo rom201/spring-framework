@@ -79,4 +79,8 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     List<Movie> top5Expens();
 
+
+    //    @Query(value = "", nativeQuery = true)
+    //ILIKE concat('%',?1,'%')
+
 }
