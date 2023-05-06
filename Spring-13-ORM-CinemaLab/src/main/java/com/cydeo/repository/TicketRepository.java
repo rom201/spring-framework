@@ -79,6 +79,7 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
 //    @Query(value ="", nativeQuery = true)
 //    List<Ticket> fetchBuUserId(@Param("userId") Long userId);
 
-
+//    @Query(value = "", nativeQuery = true)
+    //ILIKE concat('%',?1,'%')
 
 }
