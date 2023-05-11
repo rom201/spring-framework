@@ -30,7 +30,7 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     List<Account> findAllByAddressStartingWith(String keyword);
 
     //Write a derived query to sort the list of accounts with age
-    List<Account> findAllByOOrderByAgeDesc();
+    List<Account> findAllByOrderByAgeDesc();
 
 
 

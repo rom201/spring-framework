@@ -82,5 +82,4 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
             , nativeQuery = true)
     List<Ticket> retrieveAllBySearchCriteria(@Param("searchCriteria") String searchCriteria);
 
-
 }
