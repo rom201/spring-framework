@@ -25,8 +25,18 @@ public class DataGenerator implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
 
+
+
+
+
+
         System.out.println(genreRepository.fetchAll());
         System.out.println(userRepository.fetchAllUsers());
+
+
+
+
+
 
 
 
